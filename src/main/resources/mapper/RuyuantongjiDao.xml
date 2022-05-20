@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.RuyuantongjiDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.RuyuantongjiEntity" id="ruyuantongjiMap">
+        <result property="tongjibianhao" column="tongjibianhao"/>
+        <result property="tongjishijian" column="tongjishijian"/>
+        <result property="ruyuanrenshu" column="ruyuanrenshu"/>
+        <result property="beizhu" column="beizhu"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.RuyuantongjiVO" >
+		SELECT * FROM ruyuantongji  ruyuantongji         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.RuyuantongjiVO" >
+		SELECT  ruyuantongji.* FROM ruyuantongji  ruyuantongji 	
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.RuyuantongjiView" >
+
+		SELECT  ruyuantongji.* FROM ruyuantongji  ruyuantongji 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.RuyuantongjiView" >
+		SELECT * FROM ruyuantongji  ruyuantongji <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+</mapper>
